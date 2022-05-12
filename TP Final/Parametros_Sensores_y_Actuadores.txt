@@ -1,0 +1,44 @@
+Parámetros:
+	Volumen leche [Litros]						=	1000
+	Velocidad de mezcla [%]						=
+	Temperatura de enfriamiento [°C]			=	2 a 5
+	Tiempo de maduración [min]					=	240 (4 horas)
+	Velocida de maduración [%]					=		(suave)
+	Temperatura de congelado [°C]				=	-8 a -3
+	Caudal de inyección de aire [Kg/h]			=
+	
+Actuadores:
+	Válvulas:
+		CV01:	Glicol enfriador
+		CV02:	Leche de entrada
+		CV03:	Glicol congelador
+		V01:	Leche de entrada
+		V02:	Mezclador
+		V03:	Salida tanque
+		V04:	Ingredientes
+		V05:	Congelador
+	Bombas:
+		B01:	Camino al congelador
+		B02:	Mezclador
+	Motores
+		M01:	agitador de leche 
+		M03:	congelador
+		
+Sensores:
+	Cosas sin PID
+		LT01: 	Volumen Leche
+		FS01: 	abre  V04
+		LSL01:	Vaciamient de tanque de leche
+		LSL02:	Indica que la tolva se vació
+		TT02:	Temperatura tanque 2
+	Cosas con PID
+		TT01:	Temperatura tanque (En conjunción con PID [TT01 y CV01])
+		TT03:	Temperatura congelador (En conjunción con PID [TT03 y CV03])
+		FT01:	Caudalimetro para aire (En conjunción con PID [FT01 y CV02]) 
+	
+	
+	
+	
+	
+	
+	

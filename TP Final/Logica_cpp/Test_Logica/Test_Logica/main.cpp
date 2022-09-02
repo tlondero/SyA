@@ -16,17 +16,27 @@ int main()
 	while (input_char != "Q") {
 		cin >> input_char;
 		if (input_char == "LT01") {
-			mySensors.LT01 = true;
+			mySensors.LT01 = !mySensors.LT01;
 		}
-		else if (input_char ==  "FS01"){
-			mySensors.FS01 = true;
+		else if (input_char == "FS01") {
+			mySensors.FS01 = !mySensors.FS01;
 		}
 		else if (input_char == "LSL02") {
-			mySensors.LSL02 = false;
+			mySensors.LSL02 = !mySensors.LSL02;
 		}
 		else if (input_char == "LSL01") {
-			mySensors.LSL01 = true;
+			mySensors.LSL01 = !mySensors.LSL01;
 		}
+		else if (input_char == "S")
+			mySensors.Stop = true;
+		else if (input_char == "G")
+			mySensors.Stop = false;
+		else if (input_char == "R")
+			mySensors.Restart = true;
+		else if (input_char == "D")
+			mySensors.drain = !mySensors.drain;
+		
+
 	}
 	s_finished = true;
 	worker.join();

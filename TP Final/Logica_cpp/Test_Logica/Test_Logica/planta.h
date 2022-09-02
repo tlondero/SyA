@@ -1,33 +1,37 @@
 #pragma once
 void planta(void);
-class Valvulas{
+class Valvulas {
 public:
 	bool CV01;
 	bool CV02;
 	bool CV03;
-	bool V01 ;
-	bool V02 ;
-	bool V03 ;
-	bool V04 ;
-	bool V05 ;
-	bool V07 ;
+	bool V01;
+	bool V02;
+	bool V03;
+	bool V04;
+	bool V05;
+	bool V06;
+	bool V07;
 };
-class Bombas{
+class Bombas {
 public:
 	bool B01;
 	bool B02;
 };
-class Motores{
+class Motores {
 public:
 	bool M01;
 	bool M03;
 };
-class Sensores{
+class Sensores {
 public:
 	bool LT01 = false;
 	bool FS01 = false;
 	bool LSL01 = false;
 	bool LSL02 = true;
+	bool Stop = true;
+	bool Restart = false;
+	bool drain = false;
 	int FT01 = 0;
 	int TT01 = 10;
 	int TT02 = 12;

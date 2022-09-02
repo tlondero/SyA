@@ -24,9 +24,6 @@ int main()
 		else if (input_char == "LSL02") {
 			mySensors.LSL02 = false;
 		}
-		else if (input_char == "TT01") {
-			mySensors.TT01 = 10;
-		}
 		else if (input_char == "LSL01") {
 			mySensors.LSL01 = true;
 		}

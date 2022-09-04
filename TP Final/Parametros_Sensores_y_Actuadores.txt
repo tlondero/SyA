@@ -17,6 +17,7 @@ Actuadores:
 		V03:	Salida tanque
 		V04:	Ingredientes
 		V05:	Congelador
+		V07:	Aire Esteril
 	Bombas:
 		B01:	Camino al congelador
 		B02:	Mezclador
@@ -35,10 +36,190 @@ Sensores:
 		TT01:	Temperatura tanque (En conjunción con PID [TT01 y CV01])
 		TT03:	Temperatura congelador (En conjunción con PID [TT03 y CV03])
 		FT01:	Caudalimetro para aire (En conjunción con PID [FT01 y CV02]) 
+
+
+Estado de valvulas, bombas y motores:
+(x para valvulas controladas por PID)
+
+1. Todo cerrado, apagado.
+	Válvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Apagado
+		M03:	Apagado
+
+3. Ingreso de leche:
+	Válvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Abierta
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Apagado
+		M03:	Apagado
+		
+4. Mezcla de ingredientes:
+	LT01 indica nivel:
+		Válvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
 	
+	FS01 indica flow:
+		Válvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Abierta
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+			
+	LSL02 indica vacio:
+		Válvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+
+5. Enfriamiento:
+	Durante PID01
+		Válvulas:
+			CV01:	x
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
 	
-	
-	
-	
-	
+	PID01 llega al setpoint
+		Válvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Cerrada
+			V03:	Cerrada
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Apagado
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+
+6. Maduración (M01 con otra V):
+	Válvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Prendido
+		M03:	Apagado
+		
+7. Congelado y envío:
+	Válvulas:
+		CV01:	Cerrada
+		CV02:	x
+		CV03:	x
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Abierta
+		V07:	Abierta
+	Bombas:
+		B01:	Prendido
+		B02:	Apagado
+	Motores
+		M01:	Prendido
+		M03:	Prendido
+		
+	LSL01 vacío:
+		Válvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Cerrada
+			V03:	Cerrada
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Apagado
+		Motores
+			M01:	Apagado
+			M03:	Apagado
 	

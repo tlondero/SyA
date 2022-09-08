@@ -1,3 +1,225 @@
-version https://git-lfs.github.com/spec/v1
-oid sha256:011ca0b25cd956852e3bb0c629c041268d45db6d3920a78e87f89e2c4df64433
-size 3990
+ParÃ¡metros:
+	Volumen leche [Litros]						=	1000
+	Velocidad de mezcla [%]						=
+	Temperatura de enfriamiento [Â°C]			=	2 a 5
+	Tiempo de maduraciÃ³n [min]					=	240 (4 horas)
+	Velocida de maduraciÃ³n [%]					=		(suave)
+	Temperatura de congelado [Â°C]				=	-8 a -3
+	Caudal de inyecciÃ³n de aire [Kg/h]			=
+	
+Actuadores:
+	VÃ¡lvulas:
+		CV01:	Glicol enfriador
+		CV02:	Leche de entrada
+		CV03:	Glicol congelador
+		V01:	Leche de entrada
+		V02:	Mezclador
+		V03:	Salida tanque
+		V04:	Ingredientes
+		V05:	Congelador
+		V07:	Aire Esteril
+	Bombas:
+		B01:	Camino al congelador
+		B02:	Mezclador
+	Motores
+		M01:	agitador de leche 
+		M03:	congelador
+		
+Sensores:
+	Cosas sin PID
+		LT01: 	Volumen Leche
+		FS01: 	abre  V04
+		LSL01:	Vaciamient de tanque de leche
+		LSL02:	Indica que la tolva se vaciÃ³
+		TT02:	Temperatura tanque 2
+	Cosas con PID
+		TT01:	Temperatura tanque (En conjunciÃ³n con PID [TT01 y CV01])
+		TT03:	Temperatura congelador (En conjunciÃ³n con PID [TT03 y CV03])
+		FT01:	Caudalimetro para aire (En conjunciÃ³n con PID [FT01 y CV02]) 
+
+
+Estado de valvulas, bombas y motores:
+(x para valvulas controladas por PID)
+
+1. Todo cerrado, apagado.
+	VÃ¡lvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Apagado
+		M03:	Apagado
+
+3. Ingreso de leche:
+	VÃ¡lvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Abierta
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Apagado
+		M03:	Apagado
+		
+4. Mezcla de ingredientes:
+	LT01 indica nivel:
+		VÃ¡lvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+	
+	FS01 indica flow:
+		VÃ¡lvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Abierta
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+			
+	LSL02 indica vacio:
+		VÃ¡lvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+
+5. Enfriamiento:
+	Durante PID01
+		VÃ¡lvulas:
+			CV01:	x
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Abierta
+			V03:	Abierta
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Prendido
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+	
+	PID01 llega al setpoint
+		VÃ¡lvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Cerrada
+			V03:	Cerrada
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Apagado
+		Motores
+			M01:	Prendido
+			M03:	Apagado
+
+6. MaduraciÃ³n (M01 con otra V):
+	VÃ¡lvulas:
+		CV01:	Cerrada
+		CV02:	Cerrada
+		CV03:	Cerrada
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Cerrada
+		V07:	Cerrada
+	Bombas:
+		B01:	Apagado
+		B02:	Apagado
+	Motores
+		M01:	Prendido
+		M03:	Apagado
+		
+7. Congelado y envÃ­o:
+	VÃ¡lvulas:
+		CV01:	Cerrada
+		CV02:	x
+		CV03:	x
+		V01:	Cerrada
+		V02:	Cerrada
+		V03:	Cerrada
+		V04:	Cerrada
+		V05:	Abierta
+		V07:	Abierta
+	Bombas:
+		B01:	Prendido
+		B02:	Apagado
+	Motores
+		M01:	Prendido
+		M03:	Prendido
+		
+	LSL01 vacÃ­o:
+		VÃ¡lvulas:
+			CV01:	Cerrada
+			CV02:	Cerrada
+			CV03:	Cerrada
+			V01:	Cerrada
+			V02:	Cerrada
+			V03:	Cerrada
+			V04:	Cerrada
+			V05:	Cerrada
+			V07:	Cerrada
+		Bombas:
+			B01:	Apagado
+			B02:	Apagado
+		Motores
+			M01:	Apagado
+			M03:	Apagado
+	

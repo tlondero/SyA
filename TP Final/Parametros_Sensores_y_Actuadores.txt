@@ -1,48 +1,48 @@
-ParÃ¡metros:
+Parámetros:
 	Volumen leche [Litros]						=	1000
 	Velocidad de mezcla [%]						=
 	Temperatura de enfriamiento [Â°C]			=	2 a 5
-	Tiempo de maduraciÃ³n [min]					=	240 (4 horas)
-	Velocida de maduraciÃ³n [%]					=		(suave)
+	Tiempo de maduración [min]					=	240 (4 horas)
+	Velocida de maduración [%]					=		(suave)
 	Temperatura de congelado [Â°C]				=	-8 a -3
-	Caudal de inyecciÃ³n de aire [Kg/h]			=
+	Caudal de inyección de aire [Kg/h]			=
 	
 Actuadores:
-	VÃ¡lvulas:
-		CV01:	Glicol enfriador
-		CV02:	Leche de entrada
-		CV03:	Glicol congelador
-		V01:	Leche de entrada
-		V02:	Mezclador
-		V03:	Salida tanque
-		V04:	Ingredientes
-		V05:	Congelador
-		V07:	Aire Esteril
-	Bombas:
-		B01:	Camino al congelador
-		B02:	Mezclador
-	Motores
-		M01:	agitador de leche 
-		M03:	congelador
-		
-Sensores:
-	Cosas sin PID
-		LT01: 	Volumen Leche
-		FS01: 	abre  V04
-		LSL01:	Vaciamient de tanque de leche
-		LSL02:	Indica que la tolva se vaciÃ³
-		TT02:	Temperatura tanque 2
-	Cosas con PID
-		TT01:	Temperatura tanque (En conjunciÃ³n con PID [TT01 y CV01])
-		TT03:	Temperatura congelador (En conjunciÃ³n con PID [TT03 y CV03])
-		FT01:	Caudalimetro para aire (En conjunciÃ³n con PID [FT01 y CV02]) 
+	Válvulas:
+		CV01:	Glicol enfriador													TiaPortal: LBP_Vlv	*
+		CV02:	Leche de entrada													TiaPortal: LBP_Vlv	*
+		CV03:	Glicol congelador													TiaPortal: LBP_Vlv	*
+		V01:	Leche de entrada													TiaPortal: LBP_Vlv	*
+		V02:	Mezclador															TiaPortal: LBP_Vlv	*
+		V03:	Salida tanque														TiaPortal: LBP_Vlv	*
+		V04:	Ingredientes														TiaPortal: LBP_Vlv	*
+		V05:	Congelador															TiaPortal: LBP_Vlv	*
+		V07:	Aire Esteril														TiaPortal: LBP_Vlv	*
+	Bombas:										
+		B01:	Camino al congelador												TiaPortal: LBP_Mtr	*
+		B02:	Mezclador															TiaPortal: LBP_Mtr	*
+	Motores										
+		M01:	agitador de leche 													TiaPortal: LBP_Mtr	*
+		M03:	congelador															TiaPortal: LBP_Mtr	*
+											
+Sensores:									
+	Cosas sin PID (la mayoría basta con un 0/1)	
+		LT01: 	Volumen Leche														TiaPortal: LBP_OpDig
+		FS01: 	abre  V04															TiaPortal: LBP_OpDig
+		LSL01:	Vaciamient de tanque de leche										TiaPortal: LBP_OpDig
+		LSL02:	Indica que la tolva se vació										TiaPortal: LBP_OpDig
+		TT02:	Temperatura tanque 2												TiaPortal: LBP_AnaRead
+	Cosas con PID (tienen que detectar niveles para el PID)
+		TT01:	Temperatura tanque (En conjunción con PID [TT01 y CV01])			TiaPortal: LBP_AnaRead
+		TT03:	Temperatura congelador (En conjunción con PID [TT03 y CV03])		TiaPortal: LBP_AnaRead
+		FT01:	Caudalimetro para aire (En conjunción con PID [FT01 y CV02]) 		TiaPortal: LBP_AnaRead
 
 
 Estado de valvulas, bombas y motores:
 (x para valvulas controladas por PID)
 
 1. Todo cerrado, apagado.
-	VÃ¡lvulas:
+	Válvulas:
 		CV01:	Cerrada
 		CV02:	Cerrada
 		CV03:	Cerrada
@@ -60,7 +60,7 @@ Estado de valvulas, bombas y motores:
 		M03:	Apagado
 
 3. Ingreso de leche:
-	VÃ¡lvulas:
+	Válvulas:
 		CV01:	Cerrada
 		CV02:	Cerrada
 		CV03:	Cerrada
@@ -79,7 +79,7 @@ Estado de valvulas, bombas y motores:
 		
 4. Mezcla de ingredientes:
 	LT01 indica nivel:
-		VÃ¡lvulas:
+		Válvulas:
 			CV01:	Cerrada
 			CV02:	Cerrada
 			CV03:	Cerrada
@@ -97,7 +97,7 @@ Estado de valvulas, bombas y motores:
 			M03:	Apagado
 	
 	FS01 indica flow:
-		VÃ¡lvulas:
+		Válvulas:
 			CV01:	Cerrada
 			CV02:	Cerrada
 			CV03:	Cerrada
@@ -115,7 +115,7 @@ Estado de valvulas, bombas y motores:
 			M03:	Apagado
 			
 	LSL02 indica vacio:
-		VÃ¡lvulas:
+		Válvulas:
 			CV01:	Cerrada
 			CV02:	Cerrada
 			CV03:	Cerrada
@@ -134,7 +134,7 @@ Estado de valvulas, bombas y motores:
 
 5. Enfriamiento:
 	Durante PID01
-		VÃ¡lvulas:
+		Válvulas:
 			CV01:	x
 			CV02:	Cerrada
 			CV03:	Cerrada
@@ -152,7 +152,7 @@ Estado de valvulas, bombas y motores:
 			M03:	Apagado
 	
 	PID01 llega al setpoint
-		VÃ¡lvulas:
+		Válvulas:
 			CV01:	Cerrada
 			CV02:	Cerrada
 			CV03:	Cerrada
@@ -169,8 +169,8 @@ Estado de valvulas, bombas y motores:
 			M01:	Prendido
 			M03:	Apagado
 
-6. MaduraciÃ³n (M01 con otra V):
-	VÃ¡lvulas:
+6. Maduración (M01 con otra V):
+	Válvulas:
 		CV01:	Cerrada
 		CV02:	Cerrada
 		CV03:	Cerrada
@@ -187,8 +187,8 @@ Estado de valvulas, bombas y motores:
 		M01:	Prendido
 		M03:	Apagado
 		
-7. Congelado y envÃ­o:
-	VÃ¡lvulas:
+7. Congelado y envío:
+	Válvulas:
 		CV01:	Cerrada
 		CV02:	x
 		CV03:	x
@@ -205,8 +205,8 @@ Estado de valvulas, bombas y motores:
 		M01:	Prendido
 		M03:	Prendido
 		
-	LSL01 vacÃ­o:
-		VÃ¡lvulas:
+	LSL01 vacío:
+		Válvulas:
 			CV01:	Cerrada
 			CV02:	Cerrada
 			CV03:	Cerrada

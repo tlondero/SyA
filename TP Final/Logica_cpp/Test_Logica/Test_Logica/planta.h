@@ -1,3 +1,21 @@
 version https://git-lfs.github.com/spec/v1
 oid sha256:1d3df2d9833a5599b4cb5d0871c1ef0c5ff11800a60639ea37c6eb9bc71b46d0
 size 965
+
+
+#define VOLUMEN_LECHE 1000
+#define VELOCIDAD_DE_MEZCLA 0.5
+#define VELOCIDAD_DE_ENFRIAMIENTO 0.25
+
+#define TEMPERATURA_ENFRIAMIENTO = 2
+#define TIEMPO_DE_MADURACION = 24 //240 minutos o 24 segundos xd
+#define TEMPERATURA_DE_CONGELADO = -8
+#define CAUDAL_DE_INYECCION_DE_AIRE = 10
+
+#define UPPER_BOUND_CAUDAL 10
+#define LOWER_BOUND_CAUDAL 0
+#define LIMIT_T1 15
+#define LIMIT_T2 LIMIT_T1
+#define LIMIT_T3 LIMIT_T1
+
+

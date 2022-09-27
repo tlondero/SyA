@@ -1,35 +1,35 @@
 Parámetros:
 	Volumen leche [Litros]						=	1000
 	Velocidad de mezcla [%]						=
-	Temperatura de enfriamiento [Â°C]			=	2 a 5
+	Temperatura de enfriamiento [°C]			=	2 a 5
 	Tiempo de maduración [min]					=	240 (4 horas)
 	Velocida de maduración [%]					=		(suave)
-	Temperatura de congelado [Â°C]				=	-8 a -3
+	Temperatura de congelado [°C]				=	-8 a -3
 	Caudal de inyección de aire [Kg/h]			=
 	
 Actuadores:
 	Válvulas:
-		CV01:	Glicol enfriador													TiaPortal: LBP_Vlv	*
-		CV02:	Leche de entrada													TiaPortal: LBP_Vlv	*
-		CV03:	Glicol congelador													TiaPortal: LBP_Vlv	*
-		V01:	Leche de entrada													TiaPortal: LBP_Vlv	*
-		V02:	Mezclador															TiaPortal: LBP_Vlv	*
-		V03:	Salida tanque														TiaPortal: LBP_Vlv	*
-		V04:	Ingredientes														TiaPortal: LBP_Vlv	*
-		V05:	Congelador															TiaPortal: LBP_Vlv	*
-		V07:	Aire Esteril														TiaPortal: LBP_Vlv	*
+		CV01:	Glicol enfriador													TiaPortal: LBP_VlvA
+		CV02:	Leche de entrada													TiaPortal: LBP_VlvA
+		CV03:	Glicol congelador													TiaPortal: LBP_VlvA
+		V01:	Leche de entrada													TiaPortal: LBP_Vlv
+		V02:	Mezclador															TiaPortal: LBP_Vlv
+		V03:	Salida tanque														TiaPortal: LBP_Vlv
+		V04:	Ingredientes														TiaPortal: LBP_Vlv
+		V05:	Congelador															TiaPortal: LBP_Vlv
+		V07:	Aire Esteril														TiaPortal: LBP_Vlv
 	Bombas:										
-		B01:	Camino al congelador												TiaPortal: LBP_Mtr	*
-		B02:	Mezclador															TiaPortal: LBP_Mtr	*
+		B01:	Camino al congelador												TiaPortal: LBP_Mtr
+		B02:	Mezclador															TiaPortal: LBP_Mtr
 	Motores										
-		M01:	agitador de leche 													TiaPortal: LBP_Mtr	*
-		M03:	congelador															TiaPortal: LBP_Mtr	*
+		M01:	Agitador de leche 													TiaPortal: LBP_MtrF
+		M03:	Congelador															TiaPortal: LBP_Mtr
 											
 Sensores:									
 	Cosas sin PID (la mayoría basta con un 0/1)	
 		LT01: 	Volumen Leche														TiaPortal: LBP_OpDig
 		FS01: 	abre  V04															TiaPortal: LBP_OpDig
-		LSL01:	Vaciamient de tanque de leche										TiaPortal: LBP_OpDig
+		LSL01:	Vaciamiento de tanque de leche										TiaPortal: LBP_OpDig
 		LSL02:	Indica que la tolva se vació										TiaPortal: LBP_OpDig
 		TT02:	Temperatura tanque 2												TiaPortal: LBP_AnaRead
 	Cosas con PID (tienen que detectar niveles para el PID)
